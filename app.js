@@ -5,7 +5,7 @@ var nextId = 0;
 /**
  * This is the "class" definition for our Todo app. On the client-side
  * we create a single instance of this class. The TodoApp instances
- * expose methods can be used to modify the internal application state.
+ * expose methods that can be used to modify the internal application state.
  * When the internal state is changed, a "change" event is emitted
  * and the top-level UI component will rerender based on the new app state.
  */
