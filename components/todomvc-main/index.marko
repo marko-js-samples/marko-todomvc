@@ -26,7 +26,7 @@ class {
     on-change("handleToggleAllOnChange")/>
 
   <ul.todo-list>
-    <for(todo in data.todos)>
+    <for(todo in input.todos)>
       <todomvc-todo-item(todo) key="todo-${todo.id}"/>
     </for>
   </ul>
