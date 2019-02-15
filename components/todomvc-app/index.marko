@@ -1,11 +1,10 @@
-import todoApp from '../../app';
+import todoApp from '../../app'
 
-static function filterTodos() {
-  var remainingCount = 0;
-  var completedCount = 0;
-  var filter = todoApp.filter;
-
-  var filteredTodos = todoApp.todos.filter(function(todo) {
+static function getTodoData() {
+  let remainingCount = 0;
+  let completedCount = 0;
+  const filter = todoApp.filter;
+  const filteredTodos = todoApp.todos.filter(todo => {
     if (todo.completed) {
       completedCount++;
     } else {
@@ -14,9 +13,9 @@ static function filterTodos() {
 
     if (todo.pending) {
       return true;
-    } else if (filter === 'active') {
+    } else if (filter === "active") {
       return !todo.completed;
-    } else if (filter === 'completed') {
+    } else if (filter === "completed") {
       return todo.completed;
     } else {
       return true;
@@ -36,22 +35,18 @@ class {
     // Subscribe to the change state event. In response
     // to a state change event we will rerender the entire
     // app using the new state.
-    this.subscribeTo(todoApp)
-      .on('change', () => {
-        this.forceUpdate();
-      });
+    this.subscribeTo(todoApp).on("change", () => {
+      this.forceUpdate();
+    });
   }
 }
 
-
 style {
-    @import url('https://unpkg.com/todomvc-app-css@2.0.6/index.css');
+  @import url("https://unpkg.com/todomvc-app-css@2.0.6/index.css");
 }
 
-$ var todos = filterTodos();
-
 <div.todoapp>
-    <todomvc-header/>
-    <todomvc-main(todos)/>
-    <todomvc-footer(todos)/>
+  <todomvc-header/>
+  <todomvc-main ...getTodoData()/>
+  <todomvc-footer/>
 </div>

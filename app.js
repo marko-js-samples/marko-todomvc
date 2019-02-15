@@ -1,6 +1,5 @@
-var EventEmitter = require('events');
-
-var nextId = 0;
+const EventEmitter = require('events');
+let nextId = 0;
 
 /**
  * This is the "class" definition for our Todo app. On the client-side

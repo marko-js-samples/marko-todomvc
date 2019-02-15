@@ -1,10 +1,7 @@
-import todoApp from '../../app';
+import todoApp from "../../app";
 
 static function isToggleAllChecked(todos) {
-  var toggleAllChecked = true;
-
-  for (var i=0; i<todos.length; i++) {
-    var todo = todos[i];
+  for (const todo of todos) {
     if (!todo.completed) {
       return false;
     }
@@ -14,8 +11,8 @@ static function isToggleAllChecked(todos) {
 }
 
 class {
-  handleToggleAllOnChange(event, input) {
-    todoApp.toggleAllTodosCompleted(input.checked);
+  handleToggleAllOnChange(event) {
+    todoApp.toggleAllTodosCompleted(event.target.checked);
   }
 }
 
@@ -26,8 +23,8 @@ class {
     on-change("handleToggleAllOnChange")/>
 
   <ul.todo-list>
-    <for(todo in input.todos)>
-      <todomvc-todo-item(todo) key="todo-${todo.id}"/>
+    <for|todo| of=input.todos>
+      <todomvc-todo-item key=`todo-${todo.id}` ...todo/>
     </for>
   </ul>
 </section>
