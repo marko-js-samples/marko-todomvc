@@ -15,15 +15,7 @@ exports.animateOut = (event, node) => {
 };
 
 exports.animateIn = (event, node) => {
-  var clone = node.cloneNode(true);
-  clone.style.position = 'absolute';
-  clone.style.top = '-200px';
-  clone.style.left = '-200px';
-  node.parentNode.appendChild(clone);
-  var height = clone.offsetHeight;
-
-  clone.parentNode.removeChild(clone);
-
+  var height = node.offsetHeight;
   node.classList.remove('animate');
   node.style.maxHeight = '0px';
   node.style.opacity = 0;
